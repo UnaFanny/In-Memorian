@@ -1,23 +1,19 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Controles : MonoBehaviour
 {
-    [SerializeField]
+
+    [SerializeField] private float moveSpeed = 5f;   
     private Rigidbody2D rb2d;
+    private Vector2 moveImput;
+    private Animator animator;
 
-    [SerializeField]
-    private float fuerza = 100f;
-
-
-
-
-    void Awake()
-    {
-        rb2d = GetComponent<Rigidbody2D>();
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
     }
 
@@ -25,55 +21,24 @@ public class Controles : MonoBehaviour
     void Update()
     {
 
-        //arriba
+        rb2d.linearVelocity = moveImput * moveSpeed;
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            rb2d.AddForce(new Vector2(0f, 1f) * fuerza);
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            rb2d.AddForce(new Vector2(0f, 1f) * fuerza);
-        }
-
-        //izquierda
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            rb2d.AddForce(new Vector3(-1f, 0f) * fuerza);
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            rb2d.AddForce(new Vector3(-1f, 0f) * fuerza);
-        }
-
-        //derecha
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            rb2d.AddForce(new Vector4(1f, 0f) * fuerza);
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            rb2d.AddForce(new Vector4(1f, 0f) * fuerza);
-        }
-
-        //abajo
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            rb2d.AddForce(new Vector2(0f, -1f) * fuerza);
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            rb2d.AddForce(new Vector2(0f, -1f) * fuerza);
-        }
 
     }
 
+    public void Move(InputAction.CallbackContext context)
+    {
+        animator.SetBool("isWalking" , true);
+
+        if (context.canceled)
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetFloat("LastInputX", moveImput.x);
+            animator.SetFloat("LastInputY", moveImput.y);
+        }
+
+        moveImput = context.ReadValue<Vector2>();
+        animator.SetFloat("InputX", moveImput.x);
+        animator.SetFloat("InputY", moveImput.y);
+    }
 }
