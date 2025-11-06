@@ -1,9 +1,12 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject menuPausa;
+    [SerializeField]
+    private bool _Sello = false;
 
     void Start()
     {
@@ -36,7 +39,8 @@ public class GameManager : MonoBehaviour
                 }
 
             }
-        
+    
+
     }
 
     public void EstadoDelJuego(string estado)
@@ -54,5 +58,10 @@ public class GameManager : MonoBehaviour
                 Application.Quit();
                 break;
         }
+    }
+
+    public void ObtenerSello()
+    {
+        _Sello = true;
     }
 }
