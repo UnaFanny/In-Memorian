@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
             case "Quit":
                 Application.Quit();
                 break;
+            case "Cinematica":
+                SceneManager.LoadScene("Cinematica1");
+                break;
         }
     }
 

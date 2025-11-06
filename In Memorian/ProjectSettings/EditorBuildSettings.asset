@@ -5,15 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/MAIN/LEVEL/SCENES/MenuPrincipal.unity
     guid: c1e4f69c144776a49981829a1143184b
-  - enabled: 0
-    path: Assets/MAIN/LEVEL/SCENES/Cinematica inicio del juego.unity
+  - enabled: 1
+    path: Assets/MAIN/LEVEL/SCENES/Cinematica1.unity
     guid: 12719931c60253b4bbd4f07710b15a9e
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/MAIN/LEVEL/SCENES/Juego.unity
+    guid: f3090f3717f088f4b86cae7299d56d25
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
