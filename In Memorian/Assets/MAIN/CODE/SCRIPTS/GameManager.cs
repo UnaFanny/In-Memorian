@@ -60,6 +60,9 @@ public class GameManager : MonoBehaviour
             case "Cinematica":
                 SceneManager.LoadScene("Cinematica1");
                 break;
+            case "ganaste":
+                SceneManager.LoadScene(3);
+                break;
         }
     }
 
@@ -67,4 +70,12 @@ public class GameManager : MonoBehaviour
     {
         _Sello = true;
     }
-}
+
+    public void LlevarDeseo()
+    {
+        if (_Sello)
+        {
+            EstadoDelJuego("ganaste");
+        }
+     }
+    }
