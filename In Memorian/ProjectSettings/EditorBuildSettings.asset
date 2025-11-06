@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
+    path: Assets/MAIN/LEVEL/SCENES/MenuPrincipal.unity
+    guid: c1e4f69c144776a49981829a1143184b
+  - enabled: 0
+    path: Assets/MAIN/LEVEL/SCENES/Cinematica inicio del juego.unity
+    guid: 12719931c60253b4bbd4f07710b15a9e
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:
